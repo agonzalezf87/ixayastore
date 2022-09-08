@@ -1,6 +1,8 @@
 const App = () => {
   return (
-    <div>This will be the main container...</div>
+    <main className="App">
+      <h1>Welcome to IxayaStore</h1>
+    </main>
   )
 }
 
