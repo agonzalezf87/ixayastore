@@ -24,8 +24,8 @@ const Products = () => {
 
   return (
     <section className="Products">
-      {!!loading && <div>Loading...</div>}
-      {!!error && <div>There was an error fetching the data, please </div>}
+      {!!loading && <div>Cargando...</div>}
+      {!!error && <div>Ha habido un error: error.error</div>}
       {!loading && (
         products.map(product => (
           <Product 
