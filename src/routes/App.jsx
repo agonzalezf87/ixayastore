@@ -1,8 +1,20 @@
+import { Routes, Route } from 'react-router-dom'
+import { Home } from '../pages/Home'
+import { Header } from '../containers/Header'
+import { Footer } from '../containers/Footer'
+
 const App = () => {
+
   return (
-    <main className="App">
-      <h1>Welcome to IxayaStore</h1>
-    </main>
+    <>
+      <Header />
+      <main className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </main>
+      <Footer />
+    </>
   )
 }
 
