@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getProducts } from '../helpers/api'
 import { Product } from '../components/Product'
+import '../styles/containers/Products.sass'
 
 const Products = () => {
   const [loading, setLoading] = useState(true)

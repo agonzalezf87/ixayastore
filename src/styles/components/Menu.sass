@@ -1,0 +1,16 @@
+@use '../helpers/variables' as variables
+@use '../helpers/flexBox' as flexBox
+
+.Menu
+  height: 100%
+  width: 80px
+  font-size: 3.2rem
+  @include flexBox.spacebetween-center
+  svg
+    cursor: pointer
+    &:hover, &:active
+      color: variables.$variation-color3
+
+@media screen and (min-width: 600px)
+  .Menu
+    width: 120px

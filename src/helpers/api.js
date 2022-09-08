@@ -17,8 +17,7 @@ const getProducts = async () => {
       return response.data.response
     } else {
       return {
-        status: response.status,
-        message: response.statusText
+        error: response.statusText
       }
     }
   } catch (error) {

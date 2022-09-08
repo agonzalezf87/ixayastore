@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Home } from '../pages/Home'
 import { Header } from '../containers/Header'
 import { Footer } from '../containers/Footer'
+import '../styles/containers/App.sass'
 
 const App = () => {
 

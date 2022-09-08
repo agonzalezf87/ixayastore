@@ -1,0 +1,13 @@
+@use '../helpers/breaks' as breaks
+
+.Products
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  width: 100%
+  overflow-y: scroll
+
+@media screen and (min-width: 800px)
+  .Products
+    @include breaks.screens
+    margin: 12px auto
