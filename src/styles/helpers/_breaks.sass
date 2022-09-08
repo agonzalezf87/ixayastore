@@ -1,7 +1,21 @@
+$reset-margin:  0 auto
+  
 @mixin mobiles
   width: 100%
   padding: 4px 12px
  
 @mixin screens
   max-width: 1080px
-  margin: 0 auto
+  margin: $reset-margin
+
+@mixin screens-products
+  @include screens
+  margin-bottom: 52px
+
+@mixin xscreens
+  max-width: 1280px
+  margin: $reset-margin
+
+@mixin xscreens-products
+  max-width: 1280px
+  margin: 16px auto 52px

@@ -6,7 +6,12 @@
   flex-wrap: wrap
   width: 100%
   overflow-y: scroll
+  margin-bottom: 52px
+
 @media screen and (min-width: 800px)
   .Products
-    @include breaks.screens
-    margin-bottom: 52px
+    @include breaks.screens-products
+
+@media screen and (min-width: 1080px)
+  .Products
+    @include breaks.xscreens-products

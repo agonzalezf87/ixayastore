@@ -4,7 +4,8 @@
 $common-margin: 8px
 
 .Product
-  width: 280px
+  min-width: 280px
+  width: 300px
   margin: 12px 0
   border-radius: 4px
   box-shadow: 0 0 $common-margin 2px variables.$gray-color
@@ -64,3 +65,7 @@ $common-margin: 8px
   .Product
     width: 380px
     margin: 16px
+
+@media screen and (min-width: 900px)
+  .Product
+    width: 420px
