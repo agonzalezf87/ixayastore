@@ -1,4 +1,4 @@
-import Products from '../containers/Products'
+import {Products} from '../containers/Products'
 
 const Home = () => {
   return (

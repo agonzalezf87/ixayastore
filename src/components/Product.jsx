@@ -1,5 +1,5 @@
 import { BsCartPlus, BsInfoCircle } from 'react-icons/bs'
-import { calcPercentage } from '../helpers/numberHandling'
+import { applyDiscount, calcPercentage, formatEsMX } from '../helpers/numberHandling'
 import '../styles/components/Product.sass'
 
 const Product = (props) => {
@@ -11,8 +11,9 @@ const Product = (props) => {
           <img src={props.image} alt={props.title} />
         </div>
         <div className="Product__description">{props.short_description}</div>
+        <div className="Product__category">{props.category}</div>
         <div className="Product__price">$
-          {props.discount > 0 ? parseInt(props.price - props.discount) : props.price} MXN {props.discount > 0 && <span>${props.price}</span> } {props.discount > 0 && <span className='percentage'>{calcPercentage(props.price, props.discount)}% off</span>}
+          {props.discount > 0 ? applyDiscount(props.price, props.discount) : formatEsMX(props.price)} MXN {props.discount > 0 && <span>${formatEsMX(props.price)}</span> } {props.discount > 0 && <span className='percentage'>{calcPercentage(props.price, props.discount)}% off</span>}
         </div>
       </div>
       <div className="Product__tools">
