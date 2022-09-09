@@ -1,9 +1,14 @@
+import { useState } from 'react'
 import { ActionButton } from '../components/ActionButton'
+import { OrdersList } from '../containers/OrdersList'
+import { Modal } from '../containers/Modal'
 import '../styles/components/Menu.sass'
 
 const Menu = () => {
+  const [openedModal, setOpenedModal] = useState(false)
+  
   const showOrdersList = () => {
-    console.log('Orders List will show with this function...')
+    setOpenedModal(!openedModal)
   }
 
   const showCart = () => {
@@ -11,10 +16,13 @@ const Menu = () => {
   }
 
   return (
-    <nav className='Menu'>
-      <ActionButton type="OL" name="Orders List" onClick={showOrdersList} />
-      <ActionButton type="SC" name="Shopping Cart" onClick={showCart} />
-    </nav>
+    <>
+      <nav className='Menu'>
+        <ActionButton type="OL" name="Orders List" onClick={showOrdersList} />
+        <ActionButton type="SC" name="Shopping Cart" onClick={showCart} />
+      </nav>
+      {!!openedModal && <Modal><OrdersList onClick={showOrdersList} /></Modal>}
+    </>
   )
 }
 

@@ -1,9 +1,8 @@
-import { ReactDOM } from "react-dom/client";
-import '../styles/containers/Modal.sass'
+import { createPortal } from 'react-dom'
 
 const Modal = (props) => {
-  return ReactDOM.createPortal(
-    <OrdersList />,
+  return createPortal(
+    props.children,
     document.getElementById('modal')
   )
 }

@@ -27,4 +27,21 @@ const getProducts = async () => {
   }
 }
 
-export { getProducts }
+const getOrdersList = async () => {
+  try {
+    const response = await apiInstnace.get('orders')
+    if(response.status === 200) {
+      return response.data.response
+    } else {
+      return {
+        error: response.statusText
+      }
+    }
+  } catch (error) {
+    return {
+      error: error
+    }
+  }
+}
+
+export { getProducts, getOrdersList }
