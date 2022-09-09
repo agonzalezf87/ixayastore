@@ -10,6 +10,7 @@ function Logo() {
       navigator('/', {replace: true})
     }
   }
+  
   return (
     <aside className="Logo" onClick={handleClick}>
       <p>IxayaStore</p>

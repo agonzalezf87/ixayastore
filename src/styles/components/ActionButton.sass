@@ -10,10 +10,10 @@
   @include flexBox.all-center
   @include common-layout
   transition: all .3s ease
+  cursor: pointer
   &:hover
     background-color: rgba(0, 0, 0, .2)
   svg
-    color: variables.$light-color
     width: 100%
     height: 100%
     padding: 8px
@@ -24,6 +24,9 @@
       width: 100%
       height: 100%
       padding: 12px
+  &.close
+    svg
+      color: variables.$dark-color
 
 @media screen and (max-width: 600px)
   .ActionButton.menu-item
