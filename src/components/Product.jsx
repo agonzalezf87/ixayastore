@@ -19,10 +19,10 @@ const Product = (props) => {
           <img src={props.image} alt={props.title} />
         </div>
         <div className="Product__description">{props.short_description}</div>
-        <div className="Product__category">{props.category}</div>
         <div className="Product__price">$
           {props.discount > 0 ? applyDiscount(props.price, props.discount) : formatEsMX(props.price)} MXN {props.discount > 0 && <span>${formatEsMX(props.price)}</span> } {props.discount > 0 && <span className='percentage'>{calcPercentage(props.price, props.discount)}% off</span>}
         </div>
+        <div className="Product__category">{props.category}</div>
       </div>
       <div className="Product__tools">
         <ActionButton type="DI" name="Detailed Information" onClick={showDetails} />
