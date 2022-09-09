@@ -1,8 +1,16 @@
-import { BsCartPlus, BsInfoCircle } from 'react-icons/bs'
+import { ActionButton } from './ActionButton'
 import { applyDiscount, calcPercentage, formatEsMX } from '../helpers/numberHandling'
 import '../styles/components/Product.sass'
 
 const Product = (props) => {
+  const showDetails = () => {
+    console.log("Detailed information will be displayed with this fucntion...")
+  }
+
+  const addToCart = () => {
+    console.log("Item will be added to shopping cart with this fucntion...")
+  }
+
   return (
     <div className="Product">
       <div className="Product__title">{props.title}</div>
@@ -17,8 +25,8 @@ const Product = (props) => {
         </div>
       </div>
       <div className="Product__tools">
-        <BsCartPlus />
-        <BsInfoCircle />
+        <ActionButton type="DI" name="Detailed Information" onClick={showDetails} />
+        <ActionButton type="AC" name="Add To Cart" onClick={addToCart} />
       </div>
     </div>
   )

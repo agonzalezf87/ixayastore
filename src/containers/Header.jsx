@@ -1,13 +1,12 @@
-import { Menu } from "../components/Menu"
+import { Menu } from "../containers/Menu"
+import { Logo } from "../components/Logo"
 import '../styles/containers/Header.sass'
 
 const Header = () => {
   return (
     <header className="Header">
       <section className="Header__container">
-        <aside className="Header__logo">
-          <p>IxayaStore</p>
-        </aside>
+        <Logo />
         <Menu />
       </section>
     </header>
