@@ -20,8 +20,22 @@ $fdisplay: flex
   justify-content: space-evenly
   align-items: center
 
+@mixin column
+  display: $fdisplay
+  flex-direction: column
+
 @mixin column-spacebetween
   display: $fdisplay
   flex-direction: column
   justify-content: space-between
   align-items: center
+
+@mixin column-icenter
+  display: $fdisplay
+  flex-direction: column
+  align-items: center
+
+@mixin column-jcenter
+  display: $fdisplay
+  flex-direction: column
+  justify-content: center
