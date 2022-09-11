@@ -1,11 +1,12 @@
 
 import { useEffect, useState } from 'react'
-import moment from 'moment/moment'
 import { getOrdersList } from '../helpers/api'
 import { calcPercentage, formatEsMX } from '../helpers/numberHandling'
+import moment from 'moment/moment'
 import 'moment/locale/es'
 import _ from 'lodash'
 import '../styles/containers/Orders.sass'
+import { ProductInOrder } from '../components/ProductInOrder'
 
 const Orders = () => {
   const [loading, setLoading] = useState(true)
@@ -47,16 +48,7 @@ const Orders = () => {
                 <div className="Orders__resume__products">
                   <div><b>Productos:</b></div>
                   {_.uniqBy(order.products, 'id').map(product => (
-                    <div className="Orders__resume__products__product" key={product.id}>
-                      <div className="Orders__resume__products__product__image">
-                        <img src={product.image_url} alt={product.title} />
-                      </div>
-                      <div className="Orders__resume__products__product__info">
-                        <div className="Orders__resume__produts__product__title">{product.title}</div>
-                        <div className="Orders__resume__produts__product__price">${formatEsMX(product.price)}</div>
-                        <div className="Orders__resume__produts__product__quantity">Cantidad: {parseInt(product.qty)}</div>
-                      </div>
-                    </div>
+                    <ProductInOrder imageUrl={product.image_url} title={product.title} price={product.price} qty={product.qty} key={product.id} />
                   ))}
                 </div>
               </div>
