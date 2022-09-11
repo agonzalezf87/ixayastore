@@ -1,0 +1,38 @@
+@use '../helpers/variables' as variables
+@use '../helpers/flexBox' as flexBox
+
+@mixin active
+  text-decoration: none
+  background-color: variables.$primary-color
+  color: variables.$light-color
+
+.OrdersPagination
+  @include flexBox.all-center
+  list-style: none
+  gap: variables.$common-space1
+  margin: variables.$common-space2 0 
+  text-transform: capitalize
+  &__pageNum
+    cursor: pointer
+    color: variables.$dark-color
+    font-weight: 700
+    padding: variables.$common-space1 variables.$common-space2
+    border-radius: variables.$common-space2
+    &:hover
+      @include active
+    &.prevNext
+      padding: variables.$common-space1 variables.$common-space2
+    &.disabled
+      background-color: variables.$lightgray-color
+      color: variables.$gray-color
+    &.break
+      color: variables.$dark-color
+      &:hover
+        @include active
+  &__active
+    @include active
+
+@media screen and (min-width: 600px)
+  .OrdersPagination
+    &__pageNum
+      padding: variables.$common-space1 variables.$common-space3

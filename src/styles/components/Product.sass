@@ -1,38 +1,36 @@
 @use '../helpers/variables' as variables
 @use '../helpers/flexBox' as flexBox
 
-$common-margin: 8px
-
 .Product
   min-width: 280px
   width: 300px
   margin: 12px 0
   border-radius: 4px
-  box-shadow: 0 0 $common-margin 2px variables.$gray-color
+  box-shadow: 0 0 variables.$common-space2 2px variables.$gray-color
   @include flexBox.column-spacebetween
   &__information
     width: 100%
-    padding: $common-margin
+    padding: variables.$common-space2
     font-size: 1.4rem
   &__title
     width: 100%
     font-weight: 700
     color: variables.$light-color
     text-align: center
-    padding: $common-margin 4px
+    padding: variables.$common-space2 4px
     border-radius: 4px 4px 0 0
     background-color: variables.$secondary-color
   &__picture
     width: 100%
     padding: 4px
     text-align: center
-    margin-bottom: $common-margin
+    margin-bottom: variables.$common-space2
     img
       width: 80%
       height: 120px
       object-fit: scale-down
   &__description
-    margin-bottom: $common-margin
+    margin-bottom: variables.$common-space2
     min-height: 52px
   &__category
     padding: 4px 12px
@@ -42,12 +40,12 @@ $common-margin: 8px
     font-size: 1.1rem
     font-weight: 900
     color: variables.$light-color
-    margin: $common-margin
+    margin: variables.$common-space2
   &__price
     font-size: 1.2rem
     font-weight: 900
     padding-left: 16px
-    margin: $common-margin 0
+    margin: variables.$common-space2 0
     span
       font-size: 1rem
       font-style: italic
@@ -58,7 +56,7 @@ $common-margin: 8px
       @include variables.discount
   &__tools
     width: 100%
-    padding: $common-margin
+    padding: variables.$common-space2
     background-color: variables.$primary-color
     border-radius: 0 0 4px 4px
     @include flexBox.spaceevenly-center

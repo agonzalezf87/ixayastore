@@ -1,8 +1,6 @@
-
 import { useEffect, useState } from 'react'
 import { getOrdersList } from '../helpers/api'
-import { calcPercentage, formatEsMX } from '../helpers/numberHandling'
-import { Order } from '../containers/Order'
+import { OrdersPagination } from '../containers/OrdersPagination'
 import '../styles/containers/Orders.sass'
 
 const Orders = () => {
@@ -25,19 +23,15 @@ const Orders = () => {
   },[])
 
   return (
-    <section className="Orders">
-      <h1>Historial de Órdenes</h1>
-      <div className="Orders__content">
-        {!!loading && <div>Cargando...</div>}
-        {!!error && <div>Ha habido un error: error.error</div>}
-        {!loading && (
-          orders.map(order => (
-            order.enabled === '1' && (
-              <Order data={order} key={order.order_code} />
-            )
-          ))
-        )}
-      </div>
+    <section className="Orders" e>
+      <h2>Historial de Órdenes</h2>
+      {!!loading && <div>Cargando...</div>}
+      {!!error && <div>Ha habido un error: error.error</div>}
+      {!loading && (
+        <div className='Orders__content'>
+          <OrdersPagination data={orders} />
+        </div>
+      )}
     </section>
   )
 }

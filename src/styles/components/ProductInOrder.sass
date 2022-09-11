@@ -1,15 +1,11 @@
 @use '../helpers/breaks' as breaks
 @use '../helpers/flexBox' as flexBox
 @use '../helpers/variables' as variables
-  
-$common-space1: 4px
-$common-space2: 8px
-$common-space3: 16px
 
 .ProductInOrder
   display: flex
-  margin-bottom: $common-space1
-  padding: $common-space2
+  margin-bottom: variables.$common-space1
+  padding: variables.$common-space2
   &__image
     width: 64px
     @include flexBox.all-center
@@ -19,6 +15,6 @@ $common-space3: 16px
     width: 100%
     @include flexBox.column-jcenter
     font-size: 1.2rem
-    padding-left: $common-space2
+    padding-left: variables.$common-space2
   &__title
     width: 100%
