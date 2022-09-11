@@ -13,73 +13,13 @@ $common-space3: 16px
   &__content
     @include flexBox.column-icenter
     margin: 16px 0 52px
-  &__resume
-    width: 100%
-    margin-bottom: 16px
-    padding: $common-space2
-    border: 3px solid variables.$secondary-color
-    border-radius: $common-space1
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, .6)
-    &__top
-      @include flexBox.spacebetween-center
-      font-weight: 900
-      margin-bottom: $common-space2
-      color: variables.$secondary-color
-      padding: 0 $common-space1
-    &__date
-      text-transform: capitalize
-    &__code
-      i
-        text-transform: uppercase
-    &__status
-      span
-        padding: $common-space1 $common-space3
-        background-color: variables.$variation-color3
-        border-radius: $common-space3
-        color: variables.$light-color
-    &__address, &__total, &__subtotal
-      margin-bottom: $common-space1
-      b
-        margin-right: $common-space2
-    &__total
-      span
-        font-size: 1.6rem
-        @include variables.discount
-    &__products
-      padding: $common-space3
-      border-radius: $common-space2
-      background-color: variables.$lightgray-color
-      &__product
-        display: flex
-        margin-bottom: $common-space1
-        padding: $common-space2
-        &__image
-          width: 64px
-          @include flexBox.all-center
-          img
-            width: 100%
-        &__info
-          width: 100%
-          @include flexBox.column
-          font-size: 1.2rem
-          padding-left: $common-space2
-        &__title
-          width: 100%
 
 
 @media screen and (min-width: 800px)
   .Orders
     font-size: 1.8rem
     @include breaks.screens-products
-    &__resume
-      width: 90%
-      &__products
-        &__product
-          &__info
-            @include flexBox.column-jcenter
 
 @media screen and (min-width: 1080px)
   .Orders
     @include breaks.xscreens-products
-    &__resume
-      width: 75%
