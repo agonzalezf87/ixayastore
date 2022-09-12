@@ -1,12 +1,12 @@
 import { createContext, useState } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { getTotal } from '../helpers/numberHandling'
-import _, { set } from 'lodash'
 
 const CartContext = createContext()
 
 const CartProvider = (props) => {
   const [cart, setCart] = useLocalStorage('Ixaya_Cart', [])
+  const [openedModal, setOpenedModal] = useState(false)
 
   const addToCart = (data) => {
     let toCart = []
@@ -33,35 +33,20 @@ const CartProvider = (props) => {
       } else {
         setCart(toCart)
       }
-    } 
-    
-    /* const ID = parseInt(itemId)
-    let newCart
-    const currCart = [...cart]
-    if (currCart.includes(ID)) {
-      newCart = [...currCart]
-      console.log(newCart)
-      newCart[currCart.indexOf(ID)].qty = parseInt(currCart.indexOf(ID).qty) + 1
-      setCart({
-        ...newCart
-      })
     }
-    else {
-      setCart([
-        ...currCart,
-        {
-          "product_id": ID,
-          "qty":  1
-        }
-      ])
-    } */
+  }
+  
+  const showCart = () => {
+    setOpenedModal(!openedModal)
   }
 
   return (
     <CartContext.Provider
       value={{
         cart,
-        addToCart
+        openedModal,
+        addToCart,
+        showCart
       }}
     >
       {props.children}

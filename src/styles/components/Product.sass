@@ -7,6 +7,7 @@
   margin: 12px 0
   border-radius: 4px
   box-shadow: 0 0 variables.$common-space2 2px variables.$gray-color
+  transition: all .3s ease
   @include flexBox.column-spacebetween
   &__information
     width: 100%
@@ -59,14 +60,17 @@
     padding: variables.$common-space2
     background-color: variables.$primary-color
     border-radius: 0 0 4px 4px
+    color: variables.$light-color
     @include flexBox.spaceevenly-center
     svg
       font-size: 2rem
       cursor: pointer
-      &:hover
-        color: variables.$light-color
 
 @media screen and (min-width: 400px)
   .Product
     width: 380px
     margin: 16px
+
+@media screen and (min-width: 800px)
+  .Product:hover
+    transform: scale(1.1)

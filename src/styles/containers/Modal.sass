@@ -1,0 +1,26 @@
+@use '../helpers/breaks' as breaks
+@use '../helpers/flexBox' as flexBox
+@use '../helpers/variables' as variables
+
+.Modal
+  position: fixed
+  top: 64px
+  left: 0px
+  width: 100%
+  bottom: 48px
+  background-color: rgba(variables.$lightgray-color, 0.8)
+  z-index: 105
+  &__content
+    @include breaks.mobiles
+    display: flex
+    flex-direction: row-reverse
+    height: 100%
+    padding: 0
+
+@media screen and (min-width: 768px)
+  .Modal__content
+    @include breaks.screens
+
+@media screen and (min-width: 1024px)
+  .Modal__content
+    @include breaks.xscreens

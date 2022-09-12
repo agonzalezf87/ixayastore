@@ -1,8 +1,11 @@
 import { createPortal } from 'react-dom'
+import '../styles/containers/Modal.sass'
 
-const Modal = (props) => {
+const Modal = ({children}) => {
   return createPortal(
-    props.children,
+    <section className='Modal'>
+      <div className="Modal__content">{children}</div>
+    </section>,
     document.getElementById('modal')
   )
 }
