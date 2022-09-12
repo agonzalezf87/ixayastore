@@ -30,14 +30,7 @@ const Products = () => {
         products.map(product => (
           <Product 
             key={product.id}
-            category={product.category}
-            title={product.title}
-            image={product.image_url}
-            short_description={product.short_description}
-            description={product.description}
-            enabled={product.enabled}
-            discount={product.discount}
-            price={product.price}
+            data={product}
           />
         ))
       )}

@@ -10,4 +10,8 @@ const applyDiscount = (price, discount) => {
   return formatEsMX(price - discount)
 }
 
-export { calcPercentage, applyDiscount, formatEsMX }
+const getTotal = (price, discount, qty) => {
+  return (parseInt(price) - parseInt(discount)) * parseInt(qty)
+}
+
+export { calcPercentage, applyDiscount, formatEsMX, getTotal }
