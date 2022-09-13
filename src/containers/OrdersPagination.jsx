@@ -39,7 +39,7 @@ const OrdersPagination = ({data}) => {
         disabledLinkClassName={"OrdersPagination__pageNum prevNext disabled"}
       />
       {currentItems.map(order => (
-        order.enabled === '1' && ( <Order data={order} key={order.order_code} /> )
+        order.enabled === '1' && ( <Order key={order.order_code} data={order} /> )
       ))}
     </>
   )

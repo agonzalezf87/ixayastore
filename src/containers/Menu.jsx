@@ -19,7 +19,7 @@ const Menu = () => {
     const total = cart.reduce((a, b) => a + parseInt(b.qty), 0)
     return total
   }
-
+  
   useEffect(() => {
     setCartTotal(getCartTotal())
   }, [cart])
@@ -28,7 +28,7 @@ const Menu = () => {
     <>
       <nav className='Menu'>
         <ActionButton type="OL" name="Orders List" onClick={() => navigateTo('/orders')} />
-        <ActionButton type="SC" name="Shopping Cart" onClick={showCart} cartTotal={cartTotal} />
+        {cartTotal > 0 ? <ActionButton type="SC" name="Shopping Cart" onClick={showCart} cartTotal={cartTotal} /> : <ActionButton type="SC" name="Shopping Cart"/>}
       </nav>
       {!!openedModal && (
         <Modal>

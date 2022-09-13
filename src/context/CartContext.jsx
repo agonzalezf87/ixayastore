@@ -10,11 +10,12 @@ const CartProvider = (props) => {
 
   const addToCart = (data) => {
     let toCart = []
-    if (cart.some(el => el.id === data.id)) {
+
+    if (!!cart.find(el => el.id === data.id)) {
       toCart = [
         ...cart
       ]
-      let foundIndex = cart.findIndex(el => el.id = data.id)
+      let foundIndex = cart.findIndex(el => el.id === data.id)
 
       toCart[foundIndex].qty = parseInt(toCart[foundIndex].qty) + 1
       toCart[foundIndex].total = getTotal(toCart[foundIndex].price, toCart[foundIndex].discount, toCart[foundIndex].qty)
@@ -35,6 +36,18 @@ const CartProvider = (props) => {
       }
     }
   }
+
+  const removeFromCart = (prodId) => {
+    let toCart = [...cart]
+    let foundIndex = cart.findIndex(el => el.id === prodId)
+    if (toCart[foundIndex].qty > 1) {
+      toCart[foundIndex].qty = parseInt(toCart[foundIndex].qty) - 1
+      toCart[foundIndex].total = getTotal(toCart[foundIndex].price, toCart[foundIndex].discount, toCart[foundIndex].qty)
+      setCart(toCart)
+    } else {
+      setCart(toCart.filter(prod => prod.id !== prodId))
+    }
+  }
   
   const showCart = () => {
     setOpenedModal(!openedModal)
@@ -46,6 +59,7 @@ const CartProvider = (props) => {
         cart,
         openedModal,
         addToCart,
+        removeFromCart,
         showCart
       }}
     >

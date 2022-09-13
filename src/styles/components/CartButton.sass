@@ -1,0 +1,26 @@
+@use '../helpers/variables' as variables
+@use '../helpers/flexBox' as flexBox
+
+.CartButton
+  @inclde flexBox.all-center
+  background-color: variables.$primary-color
+  border: 2px solid transparent
+  font-size: 1.8rem
+  line-height: 1
+  color: variables.$light-color
+  padding: variables.$common-space1 variables.$common-space3
+  border-radius: variables.$common-space1
+  height: 32px
+  &.go
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 42px
+    font-size: 2rem
+    font-weight: 700
+    svg
+      margin-left: variables.$common-space3
+  &:hover
+    color: variables.$dark-color
+  &:active
+    border: 2px solid variables.$dark-color
