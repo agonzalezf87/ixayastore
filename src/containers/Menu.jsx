@@ -4,6 +4,7 @@ import { useNavigation } from '../hooks/useNavigation'
 import { ActionButton } from '../components/ActionButton'
 import { Modal } from './Modal'
 import { Cart } from './Cart'
+import { useLocation } from "react-router-dom"
 import '../styles/components/Menu.sass'
 
 const Menu = () => {
@@ -14,6 +15,7 @@ const Menu = () => {
     showCart
   } = useContext(CartContext)
   const [cartTotal, setCartTotal] = useState(0)
+  const location = useLocation()
 
   const getCartTotal = () => {
     const total = cart.reduce((a, b) => a + parseInt(b.qty), 0)
@@ -28,7 +30,7 @@ const Menu = () => {
     <>
       <nav className='Menu'>
         <ActionButton type="OL" name="Orders List" onClick={() => navigateTo('/orders')} />
-        {cartTotal > 0 ? <ActionButton type="SC" name="Shopping Cart" onClick={showCart} cartTotal={cartTotal} /> : <ActionButton type="SC" name="Shopping Cart"/>}
+        {location.pathname !== '/placeOrder' && (cartTotal > 0 ? <ActionButton type="SC" name="Shopping Cart" onClick={showCart} cartTotal={cartTotal} /> : <ActionButton type="SC" name="Shopping Cart"/>)}
       </nav>
       {!!openedModal && (
         <Modal>

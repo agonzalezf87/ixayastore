@@ -1,0 +1,22 @@
+@use '../helpers/breaks' as breaks
+
+.PlaceOrder
+  &__content
+    @include breaks.mobiles
+    display: grid
+    grid-columns: repeat(2, minmax(320px, 1fr))
+
+@media screen and ( min-width: 768px )
+  .PlaceOrder
+    &__content
+      @include breaks.screens
+      .CurrOrder
+        width: 50%
+      .CurrCart
+        width: 50%
+
+@media screen and ( min-width: 768px )
+  .PlaceOrder
+    &__content
+      @include breaks.xscreens
+      
