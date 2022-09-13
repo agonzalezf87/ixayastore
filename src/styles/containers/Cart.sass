@@ -6,14 +6,10 @@
   right: 0px
   bottom: 0px
   width: 100%
-  display: flex
-  flex-direction: column
-  padding: variables.$common-space3 12px
+  padding: 0 12px
   background-color: variables.$light-color
   font-weight: 700
-  font-size: 1.8rem
   line-height: 1.5
-  text-align: right
   overflow-y: scroll
   span
     color: variables.$gray-color
@@ -24,31 +20,60 @@
   .ActionButton
     align-self: flex-end
     margin-bottom: variables.$common-space1
-  &__product
-    display: flex
-    align-items: flex-start
-    flex-wrap: wrap
-    margin-bottom: variables.$common-space3
-    padding: variables.$common-space2 variables.$common-space3
-    border: 1px solid variables.$lightgray-color
-    border-bottom: 2px solid variables.$secondary-color
-    border-radius: 0 0 variables.$common-space2 variables.$common-space2
+  &__button
+    height: 56px
     width: 100%
-    input
-      width: 48px
-      padding: variables.$common-space1 variables.$common-space2
-      margin: 0 variables.$common-space1
-      font-size: 1.8rem
-      line-height: 1
-      border-radius: variables.$common-space1
-    &__row
+    background: white
+    padding: 6px 0
+    position: sticky
+    bottom: 0px
+    left: 0px
+  &__content
+    .Cart__product
+      overflow-y: scroll
+      display: flex
+      align-items: flex-start
+      flex-wrap: nowrap
+      margin-bottom: variables.$common-space3
+      border: 1px solid variables.$lightgray-color
+      border-bottom: 2px solid variables.$secondary-color
+      border-radius: 0 0 variables.$common-space2 variables.$common-space2
+      padding: variables.$common-space2 variables.$common-space3
       width: 100%
-      padding: 6px 0
+      height: 100%
+      input
+        width: 48px
+        padding: variables.$common-space1 variables.$common-space2
+        margin: 0 variables.$common-space1
+        font-size: 1.8rem
+        line-height: 1
+        border-radius: variables.$common-space1
+      &__image
+        @include flexBox.all-center
+        height: 100%
+        picture
+          width: 64px
+          height: 100%
+          img
+            width: 100%
+      &__info
+        display: flex
+        flex-wrap: wrap
+      &__title
+        width: 100%
+        padding: 6px
+        padding-right: 0
+        text-align: right
+      &__row
+        width: 100%
       &__wrapper
         width: 100%
+        padding: 6px
+        padding-right: 0
         display: flex
         flex-direction: row-reverse
         align-items: center
+        flex-wrap: wrap
 
 @media screen and (min-width: 768px)
   .Cart

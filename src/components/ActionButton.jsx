@@ -3,7 +3,7 @@ import '../styles/components/ActionButton.sass'
 
 const ActionButton = (props) => {
   return (
-    <div className={props.type === 'OL' || props.type === 'SC' ? 'ActionButton menu-item' : props.title === 'CL' ? 'ActionButton close' : 'ActionButton' } alt={props.name} title={!!props.cartTotal && props.cartTotal > 0 ? `${props.name} (${props.cartTotal})` : props.name} onClick={props.onClick} >
+    <div className={props.type === 'OL' || props.type === 'SC' ? 'ActionButton menu-item' : props.type === 'CL' ? 'ActionButton close' : 'ActionButton' } alt={props.name} title={!!props.cartTotal && props.cartTotal > 0 ? `${props.name} (${props.cartTotal})` : props.name} onClick={props.onClick} >
       {!!props.cartTotal && props.cartTotal > 0 && (
         <div className='ActionButton__cartTotal'>{props.cartTotal}</div>
       )}

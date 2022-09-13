@@ -25,27 +25,34 @@ const Cart = () => {
 
   return (
     <section className="Cart">
-      <ActionButton type="CL" onClick={handleClose}/>
-      {cart.map(product => (
-        <div className="Cart__product" key={product.id} alt={`prod${product.id}`}>
-          <div className="Cart__product__row">
-            <div>{product.title}</div>
-          </div>
-          <div className="Cart__product__row">
-            <div className="Cart__product__row__wrapper">
-              <div>{!!product.discount && ( <span>${formatEsMX(product.price)} </span>)} ${!!product.discount ? applyDiscount(product.price, product.discount) : formatEsMX(product.price) } </div>
+      <div className="Cart__content">
+        <ActionButton type="CL" onClick={handleClose}/>
+        {cart.map(product => (
+          <div className="Cart__product" key={product.id} >
+            <div className="Cart__product__image">
+              <picture><img src={product.image_url} alt={product.title} /></picture>
+            </div>
+            <div className="Cart__product__info">
+              <div className="Cart__product__title">{product.title}</div>
+              <div className="Cart__product__row">
+                <div className="Cart__product__wrapper">
+                  <div>{!!product.discount && ( <span>${formatEsMX(product.price)} </span>)} ${!!product.discount ? applyDiscount(product.price, product.discount) : formatEsMX(product.price) } </div>
+                </div>
+              </div>
+              <div className="Cart__product__row">
+                <div className="Cart__product__wrapper">
+                  <CartButton type="add" onClick={() => addToCart(product)} />
+                  <input type="text" value={product.qty} readOnly={true}/>
+                  <CartButton type="del" onClick={() => removeFromCart(product.id)} />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="Cart__product__row">
-            <div className="Cart__product__row__wrapper">
-              <CartButton type="add" onClick={() => addToCart(product)} />
-              <input type="text" value={product.qty} readOnly={true}/>
-              <CartButton type="del" onClick={() => removeFromCart(product.id)} />
-            </div>
-          </div>
-        </div>
         ))}
+      </div>
+      <div className="Cart__button">
         <CartButton type="go" label="Colocar Orden" />
+      </div>
     </section>
   )
 }
