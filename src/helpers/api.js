@@ -44,4 +44,11 @@ const getOrdersList = async () => {
   }
 }
 
+const placeOrder = async (formdata) => {
+  let streetName = formdata.streetName
+  const response = await apiInstnace.post('orders/create', {
+
+  })
+}
+
 export { getProducts, getOrdersList }
