@@ -1,7 +1,14 @@
+import { useContext } from "react"
+import { CartContext } from '../context/CartContext'
 import { CartButton } from "../components/CartButton"
 import { applyDiscount, formatEsMX } from "../helpers/numberHandling"
+import '../styles/components/CartContent.sass'
 
-const CartContent = ({product}) => {
+const CartContent = ({product}) => {const {
+    addToCart,
+    removeFromCart
+  } = useContext(CartContext)
+
   return (
     <div className="Cart__product" >
       <div className="Cart__product__image">

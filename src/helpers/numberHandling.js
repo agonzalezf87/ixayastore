@@ -1,5 +1,5 @@
-const formatEsMX = (number) => { 
-  return parseInt(number).toLocaleString('es-MX')
+const formatEsMX = (number) => {
+  return typeof number === 'number' ? number.toLocaleString('es-MX') : parseInt(number).toLocaleString('es-MX')
 }
 
 const calcPercentage = (price, discount) => {

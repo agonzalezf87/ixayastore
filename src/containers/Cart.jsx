@@ -10,8 +10,6 @@ const Cart = () => {
   const {
     cart, 
     showCart,
-    addToCart,
-    removeFromCart
   } = useContext(CartContext)
   const [ navigateTo ] = useNavigation()
 

@@ -6,6 +6,7 @@ const CartContext = createContext()
 
 const CartProvider = (props) => {
   const [cart, setCart] = useLocalStorage('Ixaya_Cart', [])
+  const [cartTotales, setCartTotales] = useState({})
   const [openedModal, setOpenedModal] = useState(false)
 
   const addToCart = (data) => {
@@ -49,6 +50,10 @@ const CartProvider = (props) => {
     }
   }
   
+  const saveTotales = (totalsObject) => {
+    setCartTotales(totalsObject)
+  } 
+
   const showCart = () => {
     setOpenedModal(!openedModal)
   }
@@ -58,9 +63,11 @@ const CartProvider = (props) => {
       value={{
         cart,
         openedModal,
+        cartTotales,
         addToCart,
         removeFromCart,
-        showCart
+        showCart,
+        saveTotales
       }}
     >
       {props.children}
