@@ -1,0 +1,24 @@
+@use '../helpers/breaks' as breaks
+@use '../helpers/variables' as variables
+
+.GoBack
+  @include breaks.mobiles
+  padding: variables.$common-space3 24px
+  &__link
+    color: variables.$dark-color
+    font-weight: 900
+    font-size: 1.4rem
+    line-height: 2
+    font-style: italic
+    cursor: pointer
+    span
+      margin-right: variables.$common-space2
+    
+
+@media screen and (min-width: 768px)
+  .GoBack
+    @include breaks.screens
+
+@media screen and (min-width: 1024px)
+  .GoBack
+    @include breaks.xscreens
