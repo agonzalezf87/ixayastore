@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { CartContext } from '../context/CartContext'
 import { getOrdersList } from '../helpers/api'
 import { OrdersPagination } from '../containers/OrdersPagination'
 import '../styles/containers/Orders.sass'
 
 const Orders = () => {
-  const [loading, setLoading] = useState(true)
+  const {loading, toggleLoading} = useContext(CartContext)
   const [error, setError] = useState(false)
   const [orders, setOrders] = useState([])
 
@@ -12,10 +13,10 @@ const Orders = () => {
     (async () => {
       const apiOrders = await getOrdersList()
       if (!apiOrders.error) {
-        setLoading(false)
+        toggleLoading(false)
         setOrders(apiOrders)
       } else {
-        setLoading(false)
+        toggleLoading(false)
         setError(true)
         setOrders(apiOrders.error)
       }
@@ -30,7 +31,6 @@ const Orders = () => {
   return (
     <section className="Orders" e>
       <h2>Historial de Órdenes</h2>
-      {!!loading && <div>Cargando...</div>}
       {!!error && <div>Ha habido un error: {error.error}</div>}
       {!loading && (
         <div className='Orders__content'>
