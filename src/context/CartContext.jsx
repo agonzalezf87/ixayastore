@@ -49,6 +49,10 @@ const CartProvider = (props) => {
       setCart(toCart.filter(prod => prod.id !== prodId))
     }
   }
+
+  const clearCart = () => {
+    setCart([])
+  }
   
   const saveTotals = (totalsObject) => {
     setCartTotals(totalsObject)

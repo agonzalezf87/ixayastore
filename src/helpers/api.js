@@ -47,10 +47,16 @@ const getOrdersList = async () => {
 const placeOrder = async (order) => {
   try {
     const response = await apiInstnace.post('orders/create', {
-      order
+      ...order,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
     })
     if(response.status === 200) {
-      return response.data.response
+      return {
+        response: response.data.response,
+        order_id: response.data.order_id
+      } 
     } else {
       return {
         error: response.statusText

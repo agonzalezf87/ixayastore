@@ -29,8 +29,8 @@ const Menu = () => {
   return (
     <>
       <nav className='Menu'>
-        <ActionButton type="OL" name="Orders List" onClick={() => navigateTo('/orders')} />
-        {location.pathname !== '/placeOrder' && (cartTotal > 0 ? <ActionButton type="SC" name="Shopping Cart" onClick={showCart} cartTotal={cartTotal} /> : <ActionButton type="SC" name="Shopping Cart"/>)}
+        <ActionButton type="OL" name="Historial de órdenes" onClick={() => navigateTo('/orders')} />
+        {location.pathname !== '/placeOrder' && (cartTotal > 0 ? <ActionButton type="SC" name="Carrito de compras" onClick={showCart} cartTotal={cartTotal} /> : <ActionButton type="SC" name="Carrito de compras"/>)}
       </nav>
       {!!openedModal && (
         <Modal>

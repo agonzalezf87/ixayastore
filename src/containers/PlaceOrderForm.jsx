@@ -6,10 +6,12 @@ import { placeOrder } from '../helpers/api'
 import '../styles/containers/PlaceOrderForm.sass'
 
 const PlaceOrderForm = () => {
-  const { cart, cartTotals } = useContext(CartContext)
+  const { cart, cartTotals,  } = useContext(CartContext)
   const formReference = useRef()
   const [productsList, setProductsList] = useState([])
+  const [errorSending, setErrorSending] = useState(false)
 
+  
   const handleSubmit = (evt) => {
     evt.preventDefault()
     const formData = new FormData(formReference.current)
@@ -22,12 +24,10 @@ const PlaceOrderForm = () => {
       "city": formData.get('city'),
       "product_list": productsList
     }
-    
-    console.log(order)
 
     placeOrder(order)
     .then(response => console.log(response))
-    .catch(response => console.log(response.error))
+    .catch(error => console.log(error))
   }
     
   useEffect(() => {

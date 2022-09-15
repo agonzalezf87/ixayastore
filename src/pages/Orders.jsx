@@ -17,16 +17,21 @@ const Orders = () => {
       } else {
         setLoading(false)
         setError(true)
-        setOrders(apiOrders)
+        setOrders(apiOrders.error)
       }
     })()
   },[])
+  
+  if(orders.status === 1) {
+    console.log(orders)
+    console.log(orders.sort( (a, b) => b.id - a.id) )
+  }
 
   return (
     <section className="Orders" e>
       <h2>Historial de Órdenes</h2>
       {!!loading && <div>Cargando...</div>}
-      {!!error && <div>Ha habido un error: error.error</div>}
+      {!!error && <div>Ha habido un error: {error.error}</div>}
       {!loading && (
         <div className='Orders__content'>
           <OrdersPagination data={orders} />

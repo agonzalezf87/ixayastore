@@ -10,14 +10,15 @@ const OrdersPagination = ({data}) => {
   const itemsPerPage = 5
 
   useEffect(() => {
-    const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(data.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(data.length / itemsPerPage));
+    const endOffset = itemOffset + itemsPerPage
+    data.sort( (a, b) => b.id - a.id )
+    setCurrentItems(data.slice(itemOffset, endOffset))
+    setPageCount(Math.ceil(data.length / itemsPerPage))
   }, [itemOffset, itemsPerPage])
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % data.length;
-    setItemOffset(newOffset);
+    const newOffset = (event.selected * itemsPerPage) % data.length
+    setItemOffset(newOffset)
   };
 
   return (
