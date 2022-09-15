@@ -44,11 +44,23 @@ const getOrdersList = async () => {
   }
 }
 
-const placeOrder = async (formdata) => {
-  let streetName = formdata.streetName
-  const response = await apiInstnace.post('orders/create', {
-
-  })
+const placeOrder = async (order) => {
+  try {
+    const response = await apiInstnace.post('orders/create', {
+      order
+    })
+    if(response.status === 200) {
+      return response.data.response
+    } else {
+      return {
+        error: response.statusText
+      }
+    }
+  } catch (error) {
+    return {
+      error: error
+    }
+  }
 }
 
-export { getProducts, getOrdersList }
+export { getProducts, getOrdersList, placeOrder }

@@ -1,8 +1,17 @@
-import 'FormInput.sass'
+import '../styles/components/FormInput.sass'
 
-const FormInput = () => {
+const FormInput = (props) => {
   return (
-    <div>FormInput</div>
+    <>
+      <label>
+        {props.label}
+        {!props.type ? (
+          <input type="text" name={props.iD} placeholder={props.placeHolder} required />
+        ) : (
+          <input type={props.type} name={props.iD} placeholder={props.placeHolder} pattern={props.pattern} required />
+        )}
+      </label>
+    </>
   )
 }
 

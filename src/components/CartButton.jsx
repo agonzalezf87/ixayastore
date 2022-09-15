@@ -3,7 +3,7 @@ import '../styles/components/CartButton.sass'
 
 const CartButton = (props) => {
   return (
-    <button type="button" className={props.type === 'go' ? 'CartButton go' : 'CartButton'} onClick={props.onClick}>
+    <button type={!!props.allowSubmit ? "submit" : "button"} className={props.type === 'go' ? 'CartButton go' : 'CartButton'} onClick={props.onClick}>
       {props.label}
       {props.type === "add" ? <BsPlusLg /> : props.type === "del" ? <BsDashLg /> : <BsBoxArrowRight />}
     </button>
