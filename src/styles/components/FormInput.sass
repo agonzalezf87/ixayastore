@@ -1,0 +1,18 @@
+@use '../helpers/variables' as variables
+
+.Form__label
+  width: 100%
+  color: variables.$secondary-color
+  font-weight: 700
+  font-size: 2.2rem
+  line-height: 1.2
+  .Form__input
+    width: 100%
+    font-size: 1.8rem
+    line-height: 1.5
+    margin: variables.$common-space1 0 variables.$common-space3
+    border: 2px solid variables.$gray-color
+    padding: variables.$common-space1 variables.$common-space3
+    border-radius: variables.$common-space2
+    &::placeholder
+      font-style: italic
