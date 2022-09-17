@@ -11,6 +11,7 @@ const Orders = () => {
 
   useEffect(() => {
     (async () => {
+      toggleLoading(true)
       const apiOrders = await getOrdersList()
       if (!apiOrders.error) {
         toggleLoading(false)
