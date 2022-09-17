@@ -6,6 +6,7 @@ import { Footer } from '../containers/Footer'
 import { Home } from '../pages/Home'
 import { PlaceOrder } from '../pages/PlaceOrder'
 import { Orders } from '../pages/Orders'
+import { Information } from '../pages/Information'
 import { GoBack } from '../components/GoBack'
 import { LoaderContainer } from '../containers/LoaderContainer'
 import { Loader } from '../components/Loader'
@@ -25,6 +26,7 @@ const UI = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/placeOrder" element={<PlaceOrder />} />
+          <Route path="/information" element={<Information />} />
         </Routes>
       </main>
       <Footer />

@@ -1,0 +1,15 @@
+@use '../helpers/breaks' as breaks
+
+.Information
+  &__content
+    @include breaks.mobiles
+
+@media screen and (min-width: 768px)
+  .Information
+    &__content
+      @include breaks.screens
+
+@media screen and (min-width: 768px)
+  .Information
+    &__content
+      @include breaks.xscreens

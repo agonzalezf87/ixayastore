@@ -9,6 +9,7 @@ const CartProvider = (props) => {
   const [cartTotals, setCartTotals] = useState({})
   const [openedModal, setOpenedModal] = useState(false)
   const [loading, setLoading] = useState(true)
+  const [sentOrder, setSentOrder] = useState(0)
 
   const addToCart = (data) => {
     let toCart = []
@@ -67,6 +68,10 @@ const CartProvider = (props) => {
     setLoading(bool)
   }
 
+  const saveSentOrder = (orderId) => {
+    setSentOrder(orderId)
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -74,11 +79,14 @@ const CartProvider = (props) => {
         openedModal,
         cartTotals,
         loading,
+        sentOrder,
         addToCart,
         removeFromCart,
+        clearCart,
         showCart,
         saveTotals,
-        toggleLoading
+        toggleLoading,
+        saveSentOrder
       }}
     >
       {props.children}

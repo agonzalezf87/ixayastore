@@ -2,12 +2,11 @@ import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 import { CartContent } from '../components/CartContent'
 import { formatEsMX } from '../helpers/numberHandling'
-import '../styles/containers/PlaceOrder.sass'
 import { PlaceOrderForm } from '../containers/PlaceOrderForm'
+import '../styles/pages/PlaceOrder.sass'
 
 const PlaceOrder = () => {
   const { cart, cartTotals, saveTotals, loading, toggleLoading } = useContext(CartContext)
-  const [loadingTotales, setLoadingTotales] = useState(true)
 
   useEffect(() => {
     

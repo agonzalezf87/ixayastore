@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../context/CartContext'
 import { getOrdersList } from '../helpers/api'
 import { OrdersPagination } from '../containers/OrdersPagination'
-import '../styles/containers/Orders.sass'
+import '../styles/pages/Orders.sass'
 
 const Orders = () => {
   const {loading, toggleLoading} = useContext(CartContext)

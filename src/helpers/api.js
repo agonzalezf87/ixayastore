@@ -44,6 +44,25 @@ const getOrdersList = async () => {
   }
 }
 
+const getOrderByID = async (orderId) => {
+  try {
+    const response = await apiInstnace.get('orders')
+    if(response.status === 200) {
+      const data = response.data.response
+      const order = data.filter(key => parseInt(key.id) === orderId)
+      return order
+    } else {
+      return {
+        error: response.statusText
+      }
+    }
+  } catch (error) {
+    return {
+      error: error
+    }
+  }
+}
+
 const placeOrder = async (order) => {
   try {
     const response = await apiInstnace.post('orders/create', {
@@ -69,4 +88,4 @@ const placeOrder = async (order) => {
   }
 }
 
-export { getProducts, getOrdersList, placeOrder }
+export { getProducts, getOrdersList, placeOrder, getOrderByID }
