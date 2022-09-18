@@ -23,7 +23,6 @@ const Product = ({data}) => {
         <div className="Product__category">{data.category}</div>
       </div>
       <div className="Product__tools">
-        <ActionButton type="DI" name="Detailed Information" onClick={showDetails} />
         <ActionButton type="AC" name="Add To Cart" onClick={() => addToCart(data)} />
       </div>
     </div>
