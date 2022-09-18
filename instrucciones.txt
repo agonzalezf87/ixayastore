@@ -1,0 +1,27 @@
+Ixaya Store
+E-commerce de productos de tecnología.
+
+Instrucciones de instalación
+Acceder al repositorio para clonar el proyecto:
+Mediante HTTPS
+git clone https://github.com/agonzalezf87/ixayastore.git
+Mediante SSH:
+git clone git@github.com:agonzalezf87/ixayastore.git
+Acceder a la carpeta contenedora
+cd itxayastore
+Instalar dependencias
+npm install
+Crear archivo .env.local en la carpeta raíz con las variables VITE_API y VITE_API_KEY, que guardan la URL de la API y la llave, correspondientemente.
+
+Ejecutar el el proyecto
+
+Desarrollo
+npm run dev
+Produccción
+npm run preview
+Autor
+Proyecto elaborado por ISC Antonio Rafael González Ferrer
+
+agonzalezf87@outlook.com
+agonzalezf87@gmail.com
+2292509350
